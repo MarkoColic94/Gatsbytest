@@ -10,18 +10,18 @@ const IndexPage = ({data}) => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <ul>
-      {data.allStrapiLanding.edges.map(document => (
-        <li key={document.node.id}>
+    <div className="container">
+    {data.allStrapiLanding.edges.map(document => (
+        <div key={document.node.id}>
         <h2>
-          <Link to={`/${document.node.id}`}>
+          <Link style={{ textDecoration: 'none' }} to={`/${document.node.id}`}>
             {document.node.Title}
           </Link>
         </h2>
         <Img fixed={document.node.Background_Image.childImageSharp.fixed} alt="" />
-        </li>
+        </div>
       ) )}
-    </ul>
+      </div>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
